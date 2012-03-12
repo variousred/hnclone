@@ -6,7 +6,15 @@ Please don't sue us for copyright.
   <li>
 	<%= link_to link.title, link.url %>
   </li>
+
+<%= form_for Vote.new do |f| %>
+<%= f.hidden_field :link_id, :value => link.id %>
+<%= f.submit "vote up" %>
+<% end %>
+
 <% end %>
 </ul>
+
+
 
 <%= link_to "Add link", new_link_path %>
