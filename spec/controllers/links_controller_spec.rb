@@ -18,7 +18,10 @@ describe LinksController do
 
   describe "GET 'create'" do
     context "when saving successfully" do
-      let(:successful_params) {{:link => {:url => 'http://devbootcamp.com', :title => 'Yeah!'}}}
+      let(:successful_params) do 
+        {:link => {:url => 'http://devbootcamp.com', :title => 'Yeah!'}}
+      end
+      
       it 'redirects to index' do
         post :create, successful_params
         response.should redirect_to(links_path)
