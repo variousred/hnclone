@@ -1,4 +1,11 @@
 <%= form_for (@link)  do |f| %> 
+
+<% @link.errors.full_messages.each do |msg| %>
+	<p>
+      <%= msg %>
+	</p>
+<% end %>
+
 <%= f.label :title %>
 <%= f.text_field :title  %>
 <br>

@@ -1,7 +1,12 @@
-<h1>Links#index</h1>
+<h1>Welcome to HNClone</h1>
+Please don't sue us for copyright.
 
+<ul>
 <% @links.each do |link| %>
-  <p>
+  <li>
 	<%= link_to link.title, link.url %>
-  </p>
+  </li>
 <% end %>
+</ul>
+
+<%= link_to "Add link", new_link_path %>
