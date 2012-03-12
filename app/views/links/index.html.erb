@@ -1,5 +1,7 @@
 <h1>Links#index</h1>
 
 <% @links.each do |link| %>
-	<%= link.title %>
+  <p>
+	<%= link_to link.title, link.url %>
+  </p>
 <% end %>
