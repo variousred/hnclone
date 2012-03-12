@@ -23,4 +23,26 @@ describe Link do
     l = Link.new :title => "dont care", :url => "123456"
     l.should_not be_valid
   end
+  
+  context "with votes" do
+    before(:each) do
+      @l = Link.create :title => "dont care", :url => "http://google.com"
+    end
+    
+    it "has a number of votes" do
+      @l.votes.count.should be_zero
+      @l.vote_count.should == 0
+    end
+
+    it 'can be upvoted' do
+      expect {
+        @l.votes.create
+      }.to change(@l, :vote_count).by(1)
+
+    end
+    
+    it "can be sorted by vote count"
+    
+  
+  end
 end
