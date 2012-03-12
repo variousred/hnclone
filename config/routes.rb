@@ -1,4 +1,6 @@
 Hnclone::Application.routes.draw do
+  get "votes/create"
+
   resources :links
   # The priority is based upon order of creation:
   # first created -> highest priority.
