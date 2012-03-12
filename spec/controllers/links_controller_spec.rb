@@ -14,6 +14,11 @@ describe LinksController do
       get 'new'
       response.should be_success
     end
+    it 'assigns @link' do
+      get 'new'
+      assigns[:link].should_not be_nil
+      assigns[:link].should be_instance_of(Link)
+    end
   end
 
   describe "GET 'create'" do
