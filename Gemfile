@@ -21,6 +21,11 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'rspec-rails', '~> 2.8.1'
+
+group :test do
+  gem 'factory_girl_rails', '~> 1.7.0'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
