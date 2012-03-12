@@ -7,7 +7,12 @@ class LinksController < ApplicationController
   end
 
   def create
-    Link.create(params[:link])
-    redirect_to links_path, :notice => "Link added"
+    @link = Link.new(params[:link])
+    
+    if @link.save
+      redirect_to links_path, :notice => "Link added"
+    else
+      render "new"
+    end
   end
 end
