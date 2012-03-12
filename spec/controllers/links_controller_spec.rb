@@ -17,10 +17,26 @@ describe LinksController do
   end
 
   describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
+    context "when saving successfully" do
+      it 'redirects to index' do
+        post :create, :link => {:url => 'http://devbootcamp.com', :title => 'Yeah!'}
+        response.should redirect_to(links_path)
+      end
+      it 'gives a "success" message' do
+        post :create, :link => {:url => 'http://devbootcamp.com', :title => 'Yeah!'}
+        flash[:notice].should == 'Link added'
+      end
+      it 'saves the link' do
+        expect {
+          post :create, :link => {:url => 'http://devbootcamp.com', :title => 'Yeah!'}
+        }.to change(Link, :count).by(1)
+      end
     end
+    context "when saving fails" do
+      it 'renders the "new" template'
+      it 'does not save the link'
+    end
+
   end
 
 end

@@ -3,8 +3,11 @@ class LinksController < ApplicationController
   end
 
   def new
+    
   end
 
   def create
+    Link.create(params[:link])
+    redirect_to links_path, :notice => "Link added"
   end
 end

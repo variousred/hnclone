@@ -1,10 +1,5 @@
 Hnclone::Application.routes.draw do
-  get "links/index"
-
-  get "links/new"
-
-  get "links/create"
-
+  resources :links
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
