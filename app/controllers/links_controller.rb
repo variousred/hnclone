@@ -1,7 +1,6 @@
 class LinksController < ApplicationController
   def index
-    @links = Link.all
-    
+    @links = Link.by_votes.all
   end
 
   def new

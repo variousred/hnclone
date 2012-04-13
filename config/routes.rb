@@ -1,5 +1,6 @@
 Hnclone::Application.routes.draw do
-  
+
+  root to: 'links#index'
   
   resources :votes, :only => [:create]
 

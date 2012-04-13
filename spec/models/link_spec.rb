@@ -26,22 +26,28 @@ describe Link do
   
   context "with votes" do
     before(:each) do
-      @l = Link.create :title => "dont care", :url => "http://google.com"
+      @link = Link.create :title => "dont care", :url => "http://google.com"
     end
     
     it "has a number of votes" do
-      @l.votes.count.should be_zero
-      @l.vote_count.should == 0
+      @link.votes.count.should be_zero
+      @link.votes.count.should == 0
     end
 
     it 'can be upvoted' do
       expect {
-        @l.votes.create
-      }.to change(@l, :vote_count).by(1)
+        @link.votes.create
+      }.to change{@link.votes.count}.by(1)
 
     end
     
-    it "can be sorted by vote count"
+    it "can be sorted by vote count" do
+      link1 = FactoryGirl.create(:link_with_5_votes)
+      link2 = FactoryGirl.create(:link_with_10_votes)
+      link3 = FactoryGirl.create(:link_with_8_votes)
+
+      Link.by_votes.should == [link2, link1, link3]
+    end
     
   
   end

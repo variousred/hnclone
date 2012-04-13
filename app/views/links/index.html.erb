@@ -1,10 +1,12 @@
+<%= content_tag(:h3, "#{flash[:alert]}", class: 'alert') if flash[:alert] %>
 <h1>Welcome to HNClone</h1>
 Please don't sue us for copyright.
-
 <ul>
 <% @links.each do |link| %>
   <li>
-	<%= link_to link.title, link.url %>
+	<%= link_to link.title, link.url %>                                                                    Lin
+    <br />
+    [Votes: <%= link.vote_count %>]
   </li>
 
 <%= form_for Vote.new do |f| %>
